@@ -2,25 +2,31 @@
 //  CartViewController.swift
 //  finalExamApp
 //
-//  Created by Sumit Desai on 12/27/1399 AP.
+//  Created by Sumit Desai, Mihin Patel on 17 March 2021
 //
 
 import UIKit
 
 class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // function that will return number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartList.count
     }
     
+    // function that will return the cell in the table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTable.dequeueReusableCell(withIdentifier: "cartCell") as! CartTableViewCell
         let course = cartList[indexPath.row]
         
+        // function call to set the cell inside the table
         cell.setCartCell(cart: course)
         return cell
     }
     
+    // function to perform the action depending on the editing style
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // if the editing style is delete (swipe left on the row) then delete the row
         if editingStyle == .delete{
             hours -=  cartList[indexPath.row].courseHours
             fees -= cartList[indexPath.row].courseFee
@@ -35,6 +41,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var hours = 0
     var fees = 0
     
+    // outlet connections
     @IBOutlet weak var cartTableHeight: NSLayoutConstraint!
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var hour: UILabel!
@@ -48,11 +55,13 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cartTable.tableFooterView = UIView()
         // Do any additional setup after loading the view.
         
+        // to definde the height of table dynamically as per the cart list length
         cartTableHeight.constant = CGFloat(Double(cartList.count) * 44.0)
         hour.text = String(hours)
         fee.text = String(fees)
     }
 
+    // preparing the data while navigating to other view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ViewController
         
@@ -60,7 +69,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         vc.grandTotalFees = fees
         vc.grandTotalHours = hours
     }
+    
+    // performing the segue action on click of previous button
     @IBAction func clickPrev(_ sender: Any) {
-        
+        performSegue(withIdentifier: "PrevToView", sender: self)
     }
 }

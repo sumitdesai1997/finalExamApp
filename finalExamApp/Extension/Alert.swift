@@ -2,7 +2,7 @@
 //  Alert.swift
 //  finalExamApp
 //
-//  Created by Sumit Desai on 12/27/1399 AP.
+//  Created by Sumit Desai, Mihin Patel on 17 March 2021.
 //
 
 import Foundation
@@ -10,8 +10,7 @@ import UIKit
 
 extension UIViewController{
     
-    // Global Alert
-    // Define Your number of buttons, styles and completion
+    // Global alert for showing alert box to the user
     public func openAlert(title: String,
                           message: String,
                           alertStyle:UIAlertController.Style,
@@ -26,5 +25,4 @@ extension UIViewController{
         }
         self.present(alertController, animated: true)
     }
-    //https://stackoverflow.com/a/56579842/8201581
 }

@@ -2,7 +2,7 @@
 //  CourseCellTableViewCell.swift
 //  finalExamApp
 //
-//  Created by Sumit Desai on 12/27/1399 AP.
+//  Created by Sumit Desai, Mihin Patel on 17 March 2021.
 //
 
 import UIKit
@@ -26,6 +26,7 @@ class CourseCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // function to set the cell
     func setCourseCell(course: Course){
         name.text = course.courseName
         hours.text = String(course.courseHours)

@@ -2,7 +2,7 @@
 //  CartTableViewCell.swift
 //  finalExamApp
 //
-//  Created by Sumit Desai on 12/27/1399 AP.
+//  Created by Sumit Desai, Mihin Patel 17 March 2021
 //
 
 import UIKit
@@ -24,6 +24,7 @@ class CartTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    // function to set the cell
     func setCartCell(cart : Course){
         name.text = cart.courseName
         hours.text = String(cart.courseHours)
