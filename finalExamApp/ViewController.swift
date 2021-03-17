@@ -83,11 +83,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func clickAddCourse(_ sender: Any) {
         
         if(grandTotalHours + courseHours > 19){
+            openAlert(title: "Alert", message: "Total course hours can not be more than 19 hours.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
             return
         }
         
         for cart in cartList{
             if(cart.courseName == courseName){
+                openAlert(title: "Alert", message: "The same course can not be selected again.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
                 return
             }
         }
