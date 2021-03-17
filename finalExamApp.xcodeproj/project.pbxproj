@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0322617C2602644900825C8E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322617B2602644900825C8E /* CartViewController.swift */; };
+		0322618126026D1C00825C8E /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322618026026D1C00825C8E /* CartTableViewCell.swift */; };
 		03CF3FE22602347900D62059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF3FE12602347900D62059 /* AppDelegate.swift */; };
 		03CF3FE42602347900D62059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF3FE32602347900D62059 /* SceneDelegate.swift */; };
 		03CF3FE62602347900D62059 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF3FE52602347900D62059 /* ViewController.swift */; };
@@ -15,6 +17,8 @@
 		03CF3FEE2602348000D62059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CF3FEC2602348000D62059 /* LaunchScreen.storyboard */; };
 		03CF3FF92602348100D62059 /* finalExamAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF3FF82602348100D62059 /* finalExamAppTests.swift */; };
 		03CF40042602348100D62059 /* finalExamAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF40032602348100D62059 /* finalExamAppUITests.swift */; };
+		03CF401526023C0C00D62059 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF401426023C0C00D62059 /* Course.swift */; };
+		03CF401A26023CE800D62059 /* CourseCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF401926023CE800D62059 /* CourseCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0322617B2602644900825C8E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		0322618026026D1C00825C8E /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		03CF3FDE2602347900D62059 /* finalExamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalExamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF3FE12602347900D62059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CF3FE32602347900D62059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		03CF3FFF2602348100D62059 /* finalExamAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalExamAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF40032602348100D62059 /* finalExamAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalExamAppUITests.swift; sourceTree = "<group>"; };
 		03CF40052602348100D62059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03CF401426023C0C00D62059 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		03CF401926023CE800D62059 /* CourseCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +110,11 @@
 				03CF3FE12602347900D62059 /* AppDelegate.swift */,
 				03CF3FE32602347900D62059 /* SceneDelegate.swift */,
 				03CF3FE52602347900D62059 /* ViewController.swift */,
+				03CF401926023CE800D62059 /* CourseCellTableViewCell.swift */,
+				03CF401426023C0C00D62059 /* Course.swift */,
 				03CF3FE72602347A00D62059 /* Main.storyboard */,
+				0322617B2602644900825C8E /* CartViewController.swift */,
+				0322618026026D1C00825C8E /* CartTableViewCell.swift */,
 				03CF3FEA2602348000D62059 /* Assets.xcassets */,
 				03CF3FEC2602348000D62059 /* LaunchScreen.storyboard */,
 				03CF3FEF2602348000D62059 /* Info.plist */,
@@ -258,9 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0322618126026D1C00825C8E /* CartTableViewCell.swift in Sources */,
+				03CF401526023C0C00D62059 /* Course.swift in Sources */,
 				03CF3FE62602347900D62059 /* ViewController.swift in Sources */,
 				03CF3FE22602347900D62059 /* AppDelegate.swift in Sources */,
 				03CF3FE42602347900D62059 /* SceneDelegate.swift in Sources */,
+				0322617C2602644900825C8E /* CartViewController.swift in Sources */,
+				03CF401A26023CE800D62059 /* CourseCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
