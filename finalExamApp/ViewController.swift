@@ -27,7 +27,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         courseFee = courseList[indexPath.row].courseFee
     }
     
-
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var courseTable: UITableView!
     @IBOutlet weak var hours: UILabel!
@@ -44,8 +43,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         courseTable.delegate = self
         courseTable.tableFooterView = UIView()
         
-        hours.text = String(0)
-        fee.text = String(0)
+        hours.text = String(grandTotalHours)
+        fee.text = String(grandTotalFees)
     }
     
     var courseList = [Course]()
@@ -68,7 +67,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         courseList.append(Course(courseName: "Problem solving", courseHours: 3, courseFee: 950))
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cvc = segue.destination as! CartViewController
+        
+        cvc.cartList = cartList
+        cvc.fees = grandTotalFees
+        cvc.hours = grandTotalHours
+    }
+    
+    
+    @IBAction func clickShowCart(_ sender: Any) {
+        performSegue(withIdentifier: "ShowCartToCart", sender: self)
+    }
+    
     @IBAction func clickAddCourse(_ sender: Any) {
+        
+        if(grandTotalHours + courseHours > 19){
+            return
+        }
+        
+        for cart in cartList{
+            if(cart.courseName == courseName){
+                return
+            }
+        }
+        
         grandTotalHours += courseHours
         grandTotalFees += courseFee
         cartList.append(Course(courseName: courseName, courseHours: courseHours, courseFee: courseFee))

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="finalExamApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="finalExamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,10 @@
                                                     <constraint firstAttribute="width" constant="30" id="RXQ-DK-Ak8"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="cart"/>
+                                                <connections>
+                                                    <action selector="clickShowCart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0P-Ed-YxM"/>
+                                                    <segue destination="h9n-qi-BLY" kind="showDetail" identifier="ShowCartToCart" id="EUp-VR-fbJ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Student" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSV-iV-3Jw">
                                                 <rect key="frame" x="30" y="98" width="148" height="25"/>
@@ -223,10 +227,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MIv-d3-Oqq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIv-d3-Oqq">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-45-NEc">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-45-NEc">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilv-Hr-sax">
@@ -242,7 +246,7 @@
                                                     <constraint firstAttribute="height" constant="128" id="zPT-Hy-3c5"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" id="2SJ-ax-JT8" customClass="CartTableViewCell" customModule="finalExamApp" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="43.5" id="2SJ-ax-JT8" customClass="CartTableViewCell" customModule="finalExamApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2SJ-ax-JT8" id="pdO-zI-3YO">
@@ -312,23 +316,70 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouJ-JN-uXd">
+                                                <rect key="frame" x="152" y="370.5" width="35" height="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total hours: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D71-et-c9L">
+                                                <rect key="frame" x="30" y="370.5" width="102" height="25"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdT-5Q-hIR">
+                                                <rect key="frame" x="351" y="370.5" width="33" height="25"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-tP-izX">
+                                                <rect key="frame" x="30" y="30" width="62" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                                <state key="normal" title="&lt; Prev"/>
+                                                <connections>
+                                                    <action selector="clickPrev:" destination="h9n-qi-BLY" eventType="touchUpInside" id="zwv-6Z-ISm"/>
+                                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="PrevToView" id="Edb-tb-wtl"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total fees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFW-hH-EGO">
+                                                <rect key="frame" x="246" y="370.5" width="85" height="25"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="efh-Tl-m46" secondAttribute="trailing" constant="30" id="3ap-cd-ekI"/>
                                             <constraint firstItem="efh-Tl-m46" firstAttribute="top" secondItem="Ilv-Hr-sax" secondAttribute="bottom" constant="30" id="3xl-Yf-OAY"/>
                                             <constraint firstItem="0di-sv-XcH" firstAttribute="top" secondItem="efh-Tl-m46" secondAttribute="bottom" constant="30" id="6FA-ni-82A"/>
+                                            <constraint firstItem="UdT-5Q-hIR" firstAttribute="leading" secondItem="MFW-hH-EGO" secondAttribute="trailing" constant="20" id="6hS-hi-p9F"/>
                                             <constraint firstAttribute="trailing" secondItem="F5d-oi-0bI" secondAttribute="trailing" constant="30" id="7m1-WK-dBF"/>
                                             <constraint firstItem="F5d-oi-0bI" firstAttribute="leading" secondItem="LgX-45-NEc" secondAttribute="leading" constant="30" id="808-md-Z9c"/>
+                                            <constraint firstItem="D71-et-c9L" firstAttribute="top" secondItem="F5d-oi-0bI" secondAttribute="bottom" constant="30" id="9Ge-xR-KIe"/>
                                             <constraint firstItem="Ilv-Hr-sax" firstAttribute="top" secondItem="LgX-45-NEc" secondAttribute="top" constant="30" id="DHH-gv-rxc"/>
                                             <constraint firstItem="0di-sv-XcH" firstAttribute="leading" secondItem="LgX-45-NEc" secondAttribute="leading" constant="40" id="DJT-Bw-52c"/>
+                                            <constraint firstItem="R6N-tP-izX" firstAttribute="leading" secondItem="LgX-45-NEc" secondAttribute="leading" constant="30" id="HTo-mb-of1"/>
                                             <constraint firstAttribute="trailing" secondItem="tIT-vO-cVf" secondAttribute="trailing" constant="40" id="I1G-GF-oZo"/>
                                             <constraint firstItem="tIT-vO-cVf" firstAttribute="leading" secondItem="Ejn-p5-H9j" secondAttribute="trailing" constant="50" id="LLY-Iq-CPg"/>
                                             <constraint firstItem="Ilv-Hr-sax" firstAttribute="centerX" secondItem="LgX-45-NEc" secondAttribute="centerX" id="Ly7-CF-MFF"/>
+                                            <constraint firstAttribute="bottom" secondItem="D71-et-c9L" secondAttribute="bottom" constant="422.5" id="RXi-iY-thM"/>
+                                            <constraint firstItem="R6N-tP-izX" firstAttribute="top" secondItem="LgX-45-NEc" secondAttribute="top" constant="30" id="Rm6-Bw-bck"/>
                                             <constraint firstItem="efh-Tl-m46" firstAttribute="leading" secondItem="LgX-45-NEc" secondAttribute="leading" constant="30" id="Usx-ol-HAT"/>
                                             <constraint firstItem="Ejn-p5-H9j" firstAttribute="top" secondItem="efh-Tl-m46" secondAttribute="bottom" constant="30" id="d6D-qW-26q"/>
+                                            <constraint firstItem="D71-et-c9L" firstAttribute="leading" secondItem="LgX-45-NEc" secondAttribute="leading" constant="30" id="eCo-4n-1FL"/>
                                             <constraint firstItem="tIT-vO-cVf" firstAttribute="top" secondItem="efh-Tl-m46" secondAttribute="bottom" constant="30" id="gJR-fJ-8IP"/>
+                                            <constraint firstAttribute="trailing" secondItem="UdT-5Q-hIR" secondAttribute="trailing" constant="30" id="kly-h2-zAv"/>
+                                            <constraint firstItem="ouJ-JN-uXd" firstAttribute="top" secondItem="F5d-oi-0bI" secondAttribute="bottom" constant="30" id="lPz-Uu-QQh"/>
+                                            <constraint firstItem="MFW-hH-EGO" firstAttribute="top" secondItem="F5d-oi-0bI" secondAttribute="bottom" constant="30" id="qCr-X2-JHT"/>
+                                            <constraint firstAttribute="bottom" secondItem="MFW-hH-EGO" secondAttribute="bottom" constant="422.5" id="snq-nZ-IvM"/>
                                             <constraint firstItem="F5d-oi-0bI" firstAttribute="top" secondItem="efh-Tl-m46" secondAttribute="bottom" constant="75" id="tZq-oE-45a"/>
+                                            <constraint firstAttribute="bottom" secondItem="UdT-5Q-hIR" secondAttribute="bottom" constant="422.5" id="wPS-TC-dsx"/>
+                                            <constraint firstItem="UdT-5Q-hIR" firstAttribute="top" secondItem="F5d-oi-0bI" secondAttribute="bottom" constant="30" id="xvg-Gq-rlr"/>
+                                            <constraint firstAttribute="bottom" secondItem="ouJ-JN-uXd" secondAttribute="bottom" constant="422.5" id="ytF-tH-tem"/>
+                                            <constraint firstItem="ouJ-JN-uXd" firstAttribute="leading" secondItem="D71-et-c9L" secondAttribute="trailing" constant="20" id="zZB-X2-Pah"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -351,7 +402,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cartTable" destination="F5d-oi-0bI" id="feT-Zt-UP6"/>
                         <outlet property="cartTableHeight" destination="zPT-Hy-3c5" id="ojr-5B-4Ob"/>
+                        <outlet property="fee" destination="UdT-5Q-hIR" id="gkV-d6-w8P"/>
+                        <outlet property="hour" destination="ouJ-JN-uXd" id="mQK-J2-bvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ml5-yU-xhB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
