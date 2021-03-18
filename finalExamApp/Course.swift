@@ -9,6 +9,7 @@ import Foundation
 
 // class for storing the course attributes
 class Course {
+    // course attributes
     var courseName : String
     var courseHours : Int
     var courseFee : Int

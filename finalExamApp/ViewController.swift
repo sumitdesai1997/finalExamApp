@@ -26,12 +26,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // function to perform the action on the click of row from the table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // fetching the current row values to the variables
         courseName = courseList[indexPath.row].courseName
         courseHours = courseList[indexPath.row].courseHours
         courseFee = courseList[indexPath.row].courseFee
     }
     
-    // outlet connections
+    // outlet connections for objects
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var courseTable: UITableView!
     @IBOutlet weak var hours: UILabel!
@@ -41,6 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // function call to fill the course list array
         fillData()
         
         // to definde the height of table dynamically as per the course list length
@@ -64,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // function to fill the data for course list array
     func fillData(){
+        // collecting the courses to course list array
         courseList.append(Course(courseName: "Java", courseHours: 5, courseFee: 1600))
         courseList.append(Course(courseName: "Python", courseHours: 4, courseFee: 1850))
         courseList.append(Course(courseName: "Database", courseHours: 3, courseFee: 1300))
@@ -85,21 +88,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cvc.hours = grandTotalHours
     }
     
-    // performing the segue action on click of show cart button
+    // action connection for show cart button
+    // function to perform the segue action on click of show cart button
     @IBAction func clickShowCart(_ sender: Any) {
         performSegue(withIdentifier: "ShowCartToCart", sender: self)
     }
     
+    // action connection for add course button
     // function to add the value in cart list array and perform the required validations
     @IBAction func clickAddCourse(_ sender: Any) {
         
-        // if total hours greater than 19 hours then it alerts the user
-        if(grandTotalHours + courseHours > 19){
-            openAlert(title: "Alert", message: "Total course hours can not be more than 19 hours.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
-            return
-        }
-        
-        // if the same course is already exist in cart list then it alerts the user
+        // if the same course is already exist in cart list then prevent and alert the user
         for cart in cartList{
             if(cart.courseName == courseName){
                 openAlert(title: "Alert", message: "The same course can not be selected again.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
@@ -107,8 +106,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         
+        // if total hours is greater than 19 hours then prevent and alert the user
+        if(grandTotalHours + courseHours > 19){
+            openAlert(title: "Alert", message: "Total course hours can not be more than 19 hours.", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in}])
+            return
+        }
+        
+        // adding the course hours and course fees to the total hours and total fees
         grandTotalHours += courseHours
         grandTotalFees += courseFee
+        
+        // adding the course to the cart list
         cartList.append(Course(courseName: courseName, courseHours: courseHours, courseFee: courseFee))
         
         hours.text = String(grandTotalHours)

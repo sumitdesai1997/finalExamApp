@@ -9,7 +9,7 @@ import UIKit
 
 class CourseCellTableViewCell: UITableViewCell {
 
-    
+    // outlet connections for objects
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var fee: UILabel!

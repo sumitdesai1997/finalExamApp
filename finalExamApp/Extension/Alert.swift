@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController{
     
-    // Global alert for showing alert box to the user
+    // Global function for alert box
     public func openAlert(title: String,
                           message: String,
                           alertStyle:UIAlertController.Style,
@@ -18,11 +18,15 @@ extension UIViewController{
                           actionStyles:[UIAlertAction.Style],
                           actions: [((UIAlertAction) -> Void)]){
         
+        // creating object for alert
         let alertController = UIAlertController(title: title, message: message, preferredStyle: alertStyle)
+        
+        // creating multiple action on the basis of the action titiles and actions
         for(index, indexTitle) in actionTitles.enumerated(){
             let action = UIAlertAction(title: indexTitle, style: actionStyles[index], handler: actions[index])
             alertController.addAction(action)
         }
+        
         self.present(alertController, animated: true)
     }
 }

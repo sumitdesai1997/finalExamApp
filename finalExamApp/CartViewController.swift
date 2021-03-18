@@ -24,24 +24,30 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    // function to delete the course from the cart list
     // function to perform the action depending on the editing style
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // if the editing style is delete (swipe left on the row) then delete the row
         if editingStyle == .delete{
+            // removing the course hours and course fees from the total hours and total fees
             hours -=  cartList[indexPath.row].courseHours
             fees -= cartList[indexPath.row].courseFee
+            
+            // removing the course from the cart list and from the table
             cartList.remove(at: indexPath.row)
             cartTable.deleteRows(at: [indexPath], with: .fade)
+            
             hour.text = String(hours)
             fee.text = String(fees)
         }
     }
 
+    // cartList array, hours and fees will have the value at the time of page load and it is that value which is passed from the course registration page
     var cartList = [Course]()
     var hours = 0
     var fees = 0
     
-    // outlet connections
+    // outlet connections for the objects
     @IBOutlet weak var cartTableHeight: NSLayoutConstraint!
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var hour: UILabel!
@@ -49,14 +55,15 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Do any additional setup after loading the view.
         cartTable.dataSource = self
         cartTable.delegate = self
         cartTable.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
-        
+       
         // to definde the height of table dynamically as per the cart list length
         cartTableHeight.constant = CGFloat(Double(cartList.count) * 44.0)
+        
         hour.text = String(hours)
         fee.text = String(fees)
     }
@@ -70,7 +77,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         vc.grandTotalHours = hours
     }
     
-    // performing the segue action on click of previous button
+    // action connection for previous button
+    // function to perform the segue action on click of previous button
     @IBAction func clickPrev(_ sender: Any) {
         performSegue(withIdentifier: "PrevToView", sender: self)
     }
