@@ -52,8 +52,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         courseTable.delegate = self
         courseTable.tableFooterView = UIView()
         
-        hours.text = String(grandTotalHours)
-        fee.text = String(grandTotalFees)
+        hours.text = "\(String(grandTotalHours)) Hours"
+        fee.text = "$\(String(grandTotalFees))"
     }
     
     var courseList = [Course]()
@@ -119,8 +119,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // adding the course to the cart list
         cartList.append(Course(courseName: courseName, courseHours: courseHours, courseFee: courseFee))
         
-        hours.text = String(grandTotalHours)
-        fee.text = String(grandTotalFees)
+        hours.text = "\(String(grandTotalHours)) Hours"
+        fee.text = "$\(String(grandTotalFees))"
         
     }
 }

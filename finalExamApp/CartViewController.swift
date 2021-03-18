@@ -37,8 +37,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cartList.remove(at: indexPath.row)
             cartTable.deleteRows(at: [indexPath], with: .fade)
             
-            hour.text = String(hours)
-            fee.text = String(fees)
+            hour.text = "\(String(hours)) Hours"
+            fee.text = "$\(String(fees))"
         }
     }
 
@@ -64,8 +64,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // to definde the height of table dynamically as per the cart list length
         cartTableHeight.constant = CGFloat(Double(cartList.count) * 44.0)
         
-        hour.text = String(hours)
-        fee.text = String(fees)
+        hour.text = "\(String(hours)) Hours"
+        fee.text = "$\(String(fees))"
     }
 
     // preparing the data while navigating to other view controller
